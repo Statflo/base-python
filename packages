@@ -5,3 +5,5 @@ pandas >=0.17, <1.0
 cleo >=0.3.0, <1.0
 alembic >=0.8.4, <1.0
 flask >=0.10, <1.0
+imagination
+gallium
