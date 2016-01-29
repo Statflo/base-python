@@ -14,7 +14,7 @@ RUN apt-get install -y \
     libmysqld-dev
 
 # Generate symlinks
-RUN ln -s `which python` /usr/bin/python
+RUN ln -s `which python3` /usr/bin/python
 RUN ln -s `which pip3` /usr/bin/pip
 
 # Re-install PIP and install/upgrade dependencies.
