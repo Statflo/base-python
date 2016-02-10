@@ -5,3 +5,4 @@ alembic >=0.8.4, <1.0
 flask >=0.10, <1.0
 imagination
 gallium
+boto3
