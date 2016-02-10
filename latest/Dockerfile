@@ -11,9 +11,9 @@ RUN apt-get install -y \
 
 # Re-install PIP and install/upgrade dependencies.
 RUN pip3 install --upgrade --force-reinstall pip
-RUN pip3 install --upgrade --force-reinstall -r packages
 RUN pip3 install pandas
 RUN pip3 install --egg mysql-connector-python-rf==2.1.3
+RUN pip3 install -r packages
 
 # Reduce the disk usage.
 RUN apt-get remove -y manpages
