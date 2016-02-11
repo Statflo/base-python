@@ -1,9 +1,5 @@
 FROM python:latest
 
-ADD packages /tmp/
-
-WORKDIR /tmp
-
 # Install essential DEB packages for building extensions.
 RUN apt-get update
 RUN apt-get install -y \
@@ -13,7 +9,9 @@ RUN apt-get install -y \
 RUN pip3 install --upgrade --force-reinstall pip
 RUN pip3 install pandas
 RUN pip3 install --egg mysql-connector-python-rf==2.1.3
-RUN pip3 install -r packages
+
+ADD packages /tmp/
+RUN pip3 install -r /tmp/packages
 
 # Reduce the disk usage.
 RUN apt-get remove -y manpages
