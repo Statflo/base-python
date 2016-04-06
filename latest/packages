@@ -8,3 +8,4 @@ gallium
 boto3
 hiredis
 redis
+pymemcache
