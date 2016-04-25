@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get install -y \
     libmysqlclient-dev
 
-# Re-install PIP and install/upgrade dependencies.
+# Re-install PIP and install/upgrade dependencies - not contained in packages to maximise caching
 RUN pip3 install --upgrade --force-reinstall pip
 RUN pip3 install pandas
 RUN pip3 install --egg mysql-connector-python-rf==2.1.3
