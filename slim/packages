@@ -3,3 +3,5 @@ imagination
 gallium
 boto3
 pymemcache
+sandpiper
+gunicorn

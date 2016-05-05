@@ -4,8 +4,10 @@ cleo >=0.3.0, <1.0
 alembic >=0.8.4, <1.0
 flask >=0.10, <1.0
 imagination
-gallium
+gallium==0.5.2
 boto3
 hiredis
 redis
 pymemcache
+sandpiper
+gunicorn
