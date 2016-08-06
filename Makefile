@@ -1,5 +1,5 @@
 VERSION=latest
-IMAGE_TAG=181017921891.dkr.ecr.us-east-1.amazonaws.com/base-python:$(VERSION)
+IMAGE_TAG=statflo/base-python:$(VERSION)
 
 build:
 	docker build --no-cache -t $(IMAGE_TAG) $(VERSION)
