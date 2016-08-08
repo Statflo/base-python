@@ -1,7 +1,7 @@
 # Base Python Image with the Alpha Version of Python (python-dev).
 FROM debian:latest
 
-ADD packages /tmp/
+ENV revision 20160808.1435
 
 # Install essential DEB packages for building extensions.
 RUN apt-get update
@@ -30,8 +30,10 @@ RUN apt-get remove -y python
 # Ensure the working directory for the rest of the setup.
 WORKDIR /tmp
 
+ADD requirements.txt /tmp/
+
 # Re-install PIP and install/upgrade dependencies.
-RUN pip3 install --upgrade --force-reinstall -r packages
+RUN pip3 install --upgrade --force-reinstall -r requirements.txt
 RUN pip3 install pandas
 RUN pip3 install --egg mysql-connector-python-rf==2.1.3
 
