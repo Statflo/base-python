@@ -1,5 +1,7 @@
 FROM python:latest
 
+ENV revision 20160808.1435
+
 # Install essential DEB packages for building extensions.
 RUN apt-get update
 RUN apt-get install -y \
@@ -10,8 +12,8 @@ RUN pip3 install --upgrade --force-reinstall pip
 RUN pip3 install pandas
 RUN pip3 install --egg mysql-connector-python-rf==2.1.3
 
-ADD packages /tmp/
-RUN pip3 install -r /tmp/packages
+ADD requirements.txt /tmp/
+RUN pip3 install -r /tmp/requirements.txt
 
 # Reduce the disk usage.
 RUN apt-get remove -y manpages
