@@ -6,3 +6,10 @@ flask >=0.10, <1.0
 imagination
 gallium
 boto3
+hiredis
+redis
+pymemcache
+sandpiper
+gunicorn
+requests
+pylint

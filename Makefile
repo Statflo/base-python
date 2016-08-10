@@ -1,8 +1,10 @@
 VERSION=latest
-IMAGE_TAG=181017921891.dkr.ecr.us-east-1.amazonaws.com/base-python:$(VERSION)
+NAMESPACE=statflo
+#NAMESPACE=181017921891.dkr.ecr.us-east-1.amazonaws.com
+IMAGE_TAG=$(NAMESPACE)/base-python:$(VERSION)
 
 build:
-	docker build --no-cache -t $(IMAGE_TAG) $(VERSION)
+	@docker build --no-cache -t $(IMAGE_TAG) $(VERSION)
 	@echo ""
 	@echo "The image is ready for the push. Run 'make push' to do so."
 
@@ -12,7 +14,12 @@ clean:
 	@echo "The image is removed."
 
 push:
-	docker push $(IMAGE_TAG)
+	@docker push $(IMAGE_TAG)
 
 terminal:
-	docker run -i -t --rm $(TAG)
+	@docker run -i -t --rm $(TAG)
+
+all:
+	make VERSION=latest build push
+	make VERSION=slim build push
+	#make VERSION=python3.6 build push
