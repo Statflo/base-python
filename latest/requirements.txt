@@ -13,3 +13,4 @@ sandpiper
 gunicorn
 requests
 pylint
+cryptography

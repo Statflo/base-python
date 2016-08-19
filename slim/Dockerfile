@@ -7,7 +7,7 @@ WORKDIR /tmp
 
 # Install essential packages for building extensions.
 RUN apk update
-RUN apk add gcc musl-dev linux-headers make
+RUN apk add gcc musl-dev linux-headers make libffi-dev openssl-dev
 
 # Re-install PIP and install/upgrade dependencies.
 ADD requirements.txt /tmp/

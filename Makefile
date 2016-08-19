@@ -3,6 +3,10 @@ NAMESPACE=statflo
 #NAMESPACE=181017921891.dkr.ecr.us-east-1.amazonaws.com
 IMAGE_TAG=$(NAMESPACE)/base-python:$(VERSION)
 
+build-push-all:
+	make VERSION=latest build push
+	#make VERSION=slim build push
+
 build:
 	@docker build --no-cache -t $(IMAGE_TAG) $(VERSION)
 	@echo ""
