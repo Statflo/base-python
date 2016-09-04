@@ -5,7 +5,6 @@ IMAGE_TAG=$(NAMESPACE)/base-python:$(VERSION)
 
 build-push-all:
 	make VERSION=latest build push
-	#make VERSION=slim build push
 
 build:
 	@docker build --no-cache -t $(IMAGE_TAG) $(VERSION)
@@ -25,5 +24,5 @@ terminal:
 
 all:
 	make VERSION=latest build push
+	make VERSION=v1 build push
 	make VERSION=slim build push
-	#make VERSION=python3.6 build push
