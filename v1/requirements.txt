@@ -3,8 +3,8 @@ sendgrid  >=1.5.0, <2.0
 cleo >=0.3.0, <1.0
 alembic >=0.8.4, <1.0
 flask >=0.10, <1.0
-imagination
-gallium
+imagination<2.0
+gallium<1.0
 boto3
 hiredis
 redis

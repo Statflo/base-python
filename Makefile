@@ -7,7 +7,7 @@ build-push-all:
 	make VERSION=latest build push
 
 build:
-	@docker build --no-cache -t $(IMAGE_TAG) $(VERSION)
+	@docker build $(BUILD_EXT) -t $(IMAGE_TAG) $(VERSION)
 	@echo ""
 	@echo "The image is ready for the push. Run 'make push' to do so."
 
