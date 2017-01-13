@@ -1,7 +1,7 @@
 VERSION=latest
 NAMESPACE=statflo
-#NAMESPACE=181017921891.dkr.ecr.us-east-1.amazonaws.com
-IMAGE_TAG=$(NAMESPACE)/base-python:$(VERSION)
+IMAGE_BASE_TAG=$(NAMESPACE)/base-python
+IMAGE_TAG=$(IMAGE_BASE_TAG):$(VERSION)
 
 build-push-all:
 	make VERSION=latest build push
@@ -23,6 +23,16 @@ terminal:
 	@docker run -i -t --rm $(TAG)
 
 all:
-	make VERSION=latest build push
-	make VERSION=v1 build push
-	make VERSION=slim build push
+	# make BUILD_EXT=$(BUILD_EXT) VERSION=v1   build push  # Frozen build
+	# make BUILD_EXT=$(BUILD_EXT) VERSION=v2   build push  # Frozen build
+	# make BUILD_EXT=$(BUILD_EXT) VERSION=slim build push  # Frozen build
+	make BUILD_EXT=$(BUILD_EXT) VERSION=latest build push
+
+	@#Tag "v2" as "stable"
+	docker pull $(IMAGE_BASE_TAG):v2
+	docker tag $(IMAGE_BASE_TAG):v2 $(IMAGE_BASE_TAG):stable
+	docker push $(IMAGE_BASE_TAG):stable
+
+	@#Tag "latest" as "v3"
+	docker tag $(IMAGE_BASE_TAG):latest $(IMAGE_BASE_TAG):v3
+	docker push $(IMAGE_BASE_TAG):v3

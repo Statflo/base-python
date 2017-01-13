@@ -1,5 +1,5 @@
 # This image is for light-weight applications.
-FROM python:alpine
+FROM python:3.5-alpine
 
 ENV revision 20160808.1435
 
