@@ -9,3 +9,4 @@ requests
 pylint
 cryptography
 redis
+vireo
